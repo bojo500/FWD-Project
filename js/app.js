@@ -22,6 +22,8 @@
  * Define Global Variables
  *
  */
+const sections = document.querySelectorAll('section');
+
 
 
 /**
@@ -29,7 +31,12 @@
  * Start Helper Functions
  *
  */
-
+ const checkElementInViewPort = (element) => {
+   const height = element.clientHeight;
+   const topOffset = element.offsetTop - (height/3);
+   const elementInPage = height + topOffset;
+   return window.scrollY >= topOffset && window.scrollY <= elementInPage;
+ }
 
 
 /**
@@ -39,12 +46,37 @@
  */
 
 // build the nav
-
+const buildNavbar = () => {
+const navbar = document.getElementById('navbar__list');
+    sections.forEach(section => {
+        const li = document.createElement('li');
+        li.textContent = section.getAttribute('data-nav');
+        li.setAttribute('secid',li.textContent)
+        li.addEventListener('click', () => scrollToSection(section))
+    navbar.appendChild(li);
+    })
+};
 
 // Add class 'active' to section when near top of viewport
-
+const scrollSideEffect = () => {
+    sections.forEach( section => {
+        const sectionName = section.getAttribute('data-nav');
+        const li = document.querySelector(`[secid="${sectionName}"]`)
+    const isSectionInView = checkElementInViewPort(section);
+    if (isSectionInView){
+        li.classList.add('your-active-class')
+        section.classList.add('your-active-class')
+    }else {
+        li.classList.remove('your-active-class')
+        section.classList.remove('your-active-class')
+    }
+})
+};
 
 // Scroll to anchor ID using scrollTO event
+const scrollToSection = (element) => {
+element.scrollIntoView({behavior: "smooth"})
+}
 
 
 /**
@@ -54,8 +86,9 @@
  */
 
 // Build menu
+buildNavbar();
 
 // Scroll to section on link click
 
 // Set sections as active
-
+window.addEventListener('scroll', () => scrollSideEffect())
