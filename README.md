@@ -1,13 +1,12 @@
-# Landing Page Project
+## FWD First Project
+An assessment project for Professional Javascript Specialization.
 
-## Table of Contents
+This project is a multi-section landing page, with a dynamically updating navigational menu based on the amount of content that is added to the page.
 
-* [Instructions](#instructions)
+### Preview
+open `index.html` via your favorite browser *make sure the browser is supporting JavaScript* e.g. `Chrome` `Firefox`
 
-## Instructions
+### Info
+Author: **Mohamed Khaled**
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+*May 2022 Cohort*
