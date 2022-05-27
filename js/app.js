@@ -52,7 +52,10 @@ const navbar = document.getElementById('navbar__list');
         const li = document.createElement('li');
         li.textContent = section.getAttribute('data-nav');
         li.setAttribute('secid',li.textContent)
-        li.addEventListener('click', () => scrollToSection(section))
+        li.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToSection(section)
+        })
     navbar.appendChild(li);
     })
 };
